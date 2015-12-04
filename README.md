@@ -1,5 +1,5 @@
 # DBpediaSpotlightR
-Sends text to the DBpedia Spotlight API and returns results as a data frame
+Sends text to the [DBpedia Spotlight](https://github.com/dbpedia-spotlight/dbpedia-spotlight/wiki) API and returns results as a data frame
 
 ## Installation
 ```
