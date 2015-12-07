@@ -5,9 +5,11 @@ Version: 0.1
 Date: 2015-12-04
 Author: Chris Davis
 Maintainer: Chris Davis <c_b_dvs@yahoo.com>
-Description: Sends text to the DBpedia Spotlight API and returns results as a data frame
+Description: Sends text to the DBpedia Spotlight API and returns results as a
+    data frame
 License: CC0
 LazyData: TRUE
 Depends:
     httr,
     jsonlite
+RoxygenNote: 5.0.1
