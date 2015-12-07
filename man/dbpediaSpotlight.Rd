@@ -2,6 +2,7 @@
 % Please edit documentation in R/DBpediaSpotlightR.R
 \name{dbpediaSpotlight}
 \alias{dbpediaSpotlight}
+\title{Download annotations from the DBpedia Spotlight service}
 \usage{
 dbpediaSpotlight(text, apiURL = "dbpedia", saveResponse = FALSE,
   responseFileName = "", verbose = TRUE)
@@ -24,8 +25,11 @@ A data frame containing information related to the entities extracted from the t
 Download annotations from the DBpedia Spotlight service
 }
 \examples{
-dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia")
+library(DBpediaSpotlightR)
 dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia", apiURL="sztaki")
-dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia", apiURL="sztaki", saveResponse=TRUE, responseFileName="Berlin.json")
+dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia",
+                 apiURL="sztaki",
+                 saveResponse=TRUE,
+                 responseFileName="Berlin.json")
 }
 

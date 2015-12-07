@@ -1,5 +1,6 @@
 # Some useful keyboard shortcuts for package authoring:
 #
+#   Build documentation        devtools::document()
 #   Build and Reload Package:  'Ctrl + Shift + B'
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
@@ -7,8 +8,7 @@
 library(httr)
 library(jsonlite)
 
-#' @name dbpediaSpotlight
-#' @description Download annotations from the DBpedia Spotlight service
+#' Download annotations from the DBpedia Spotlight service
 #'
 #' @param text The text to be processed.  Character vectors are currently not supported
 #' @param apiURL The URL of the API service.  By default, the official DBpedia Spotlight API will be used.  If \code{"sztaki"} is set, then the one hosted by sztaki.hu will be used.  A custom URL can be specified as well.
@@ -17,9 +17,14 @@ library(jsonlite)
 #' @param verbose Whether curl should be verbose when sending and retrieving the data from the API
 #' @return A data frame containing information related to the entities extracted from the text.
 #' @examples
+#' library(DBpediaSpotlightR)
 #' dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia")
 #' dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia", apiURL="sztaki")
-#' dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia", apiURL="sztaki", saveResponse=TRUE, responseFileName="Berlin.json")
+#' dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia",
+#'                  apiURL="sztaki",
+#'                  saveResponse=TRUE,
+#'                  responseFileName="Berlin.json")
+#' @export
 dbpediaSpotlight <- function(text, apiURL = "dbpedia", saveResponse=FALSE, responseFileName="", verbose=TRUE) {
   if (apiURL == "dbpedia"){
     annotationURL = "http://spotlight.dbpedia.org/rest/annotate"
