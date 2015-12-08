@@ -4,17 +4,15 @@
 \alias{dbpediaSpotlight}
 \title{Download annotations from the DBpedia Spotlight service}
 \usage{
-dbpediaSpotlight(text, apiURL = "dbpedia", saveResponse = FALSE,
-  responseFileName = "", verbose = TRUE)
+dbpediaSpotlight(text, apiURL = "dbpedia", responseFileName = "",
+  verbose = TRUE)
 }
 \arguments{
 \item{text}{The text to be processed.  Character vectors are currently not supported}
 
 \item{apiURL}{The URL of the API service.  By default, the official DBpedia Spotlight API will be used.  If \code{"sztaki"} is set, then the one hosted by sztaki.hu will be used.  A custom URL can be specified as well.}
 
-\item{saveResponse}{Whether the response from the API will be saved or not}
-
-\item{responseFileName}{If \code{saveResponse=TRUE}, then this will be the file where the json response is saved.  This file will contain the results of the analysis along with a record of the original text to be parsed.}
+\item{responseFileName}{If specified, this will be the file where the json response is saved, otherwise only the data frame will be returned by this function.  This file will contain the results of the analysis along with a record of the original text to be parsed.}
 
 \item{verbose}{Whether curl should be verbose when sending and retrieving the data from the API}
 }
@@ -26,10 +24,10 @@ Download annotations from the DBpedia Spotlight service
 }
 \examples{
 library(DBpediaSpotlightR)
+dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia")
 dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia", apiURL="sztaki")
 dbpediaSpotlight("Berlin was the capital of the Kingdom of Prussia",
                  apiURL="sztaki",
-                 saveResponse=TRUE,
                  responseFileName="Berlin.json")
 }
 
